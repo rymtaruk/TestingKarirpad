@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ui.Profile.ProfileActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:elevation="0dp"
+            app:backgroundTint="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@id/nsvBody"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    tools:ignore="DisableBaselineAlignment">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:id="@+id/ibClose"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerInside"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/ic_baseline_close"
+                            app:tint="@color/Gray"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="end">
+
+                        <ImageButton
+                            android:id="@+id/ibEditProfile"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="22dp"
+                            android:background="@android:color/transparent"
+                            android:src="@android:color/transparent"
+                            app:elevation="4dp"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginEnd="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <ImageView
+                        android:id="@+id/ivAvatar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@android:drawable/sym_def_app_icon"
+                        app:layout_constraintBottom_toTopOf="@id/btnChange"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+
+                    <Button
+                        android:id="@+id/btnChange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Change Picture"
+                        android:textAlignment="center"
+                        android:background="@android:color/transparent"
+                        app:elevation="0dp"
+                        app:backgroundTint="@android:color/transparent"
+                        android:textColor="@color/DodgerBlue"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                        tools:ignore="HardcodedText,SmallSp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="40dp"
+                        android:background="@color/Gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/btnChange" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/lblName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:text="Nama"
+                    android:textAlignment="viewStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/clSearch"
+                    app:layout_constraintStart_toStartOf="@id/clSearch"
+                    app:layout_constraintTop_toBottomOf="@id/clSearch"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:hint="-"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:lines="1"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="@id/lblName"
+                    app:layout_constraintStart_toStartOf="@id/lblName"
+                    app:layout_constraintTop_toBottomOf="@id/lblName"
+                    tools:ignore="HardcodedText,TextFields"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/lblEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:lines="1"
+                    android:text="Email"
+                    android:textAlignment="viewStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/etName"
+                    app:layout_constraintStart_toStartOf="@id/etName"
+                    app:layout_constraintTop_toBottomOf="@id/etName"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:lines="1"
+                    android:hint="-"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="@id/lblEmail"
+                    app:layout_constraintStart_toStartOf="@id/lblEmail"
+                    app:layout_constraintTop_toBottomOf="@id/lblEmail"
+                    tools:ignore="HardcodedText,TextFields"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/lblMobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="start"
+                    android:lines="1"
+                    android:text="Mobile"
+                    android:textAlignment="viewStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/etEmail"
+                    app:layout_constraintStart_toStartOf="@id/etEmail"
+                    app:layout_constraintTop_toBottomOf="@id/etEmail"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:hint="-"
+                    android:lines="1"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="@id/lblMobile"
+                    app:layout_constraintStart_toStartOf="@id/lblMobile"
+                    app:layout_constraintTop_toBottomOf="@id/lblMobile"
+                    tools:ignore="HardcodedText,TextFields"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/lblJobFunction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="start"
+                    android:lines="1"
+                    android:text="Job Function"
+                    android:textAlignment="viewStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/etMobile"
+                    app:layout_constraintStart_toStartOf="@id/etMobile"
+                    app:layout_constraintTop_toBottomOf="@id/etMobile"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etJobFunction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:hint="-"
+                    android:textAlignment="viewStart"
+                    android:lines="1"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:imeOptions="actionNext"
+                    app:layout_constraintEnd_toEndOf="@id/lblJobFunction"
+                    app:layout_constraintStart_toStartOf="@id/lblJobFunction"
+                    app:layout_constraintTop_toBottomOf="@id/lblJobFunction"
+                    tools:ignore="HardcodedText,TextFields"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/lblSalary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="start"
+                    android:text="Expected Salary"
+                    android:textAlignment="viewStart"
+                    android:textSize="16sp"
+                    android:lines="1"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/etJobFunction"
+                    app:layout_constraintStart_toStartOf="@id/etJobFunction"
+                    app:layout_constraintTop_toBottomOf="@id/etJobFunction"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etSalary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:hint="-"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    android:lines="1"
+                    android:imeOptions="actionNext"
+                    android:textStyle="bold"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="@id/lblSalary"
+                    app:layout_constraintStart_toStartOf="@id/lblSalary"
+                    app:layout_constraintTop_toBottomOf="@id/lblSalary"
+                    tools:ignore="HardcodedText,TextFields"
+                    android:importantForAutofill="no" />
+
+                <TextView
+                    android:id="@+id/lblBio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="start"
+                    android:text="Bio"
+                    android:textAlignment="viewStart"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/etSalary"
+                    app:layout_constraintStart_toStartOf="@id/etSalary"
+                    app:layout_constraintTop_toBottomOf="@id/etSalary"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etBio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start"
+                    android:hint="-"
+                    android:imeOptions="actionDone"
+                    android:textAlignment="viewStart"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/lblBio"
+                    app:layout_constraintStart_toStartOf="@id/lblBio"
+                    app:layout_constraintTop_toBottomOf="@id/lblBio"
+                    tools:ignore="HardcodedText" />
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Save"
+                    android:textAlignment="center"
+                    app:backgroundTint="@color/DodgerBlue"
+                    app:elevation="0dp"
+                    android:textColor="@color/Black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etBio"
+                    tools:ignore="HardcodedText,SmallSp" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Logout"
+                    android:textAlignment="center"
+                    android:background="@android:color/transparent"
+                    app:elevation="0dp"
+                    app:backgroundTint="@android:color/transparent"
+                    android:textColor="@color/Red"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnSave"
+                    tools:ignore="HardcodedText,SmallSp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

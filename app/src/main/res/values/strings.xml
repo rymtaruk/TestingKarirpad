@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">TestingKarirpad</string>
+    <string name="lbl_masuk_akun_karirpad">Masuk Akun Karirpad</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_password">Password</string>
+    <string name="lbl_ingat_saya">Ingat Saya</string>
+    <string name="lbl_lupa_kata_sandi">Lupa Kata Sandi</string>
+    <string name="lbl_daftar_akun_karirpad">Daftar Akun Karirpad</string>
+    <string name="lbl_your_email">Your Email</string>
+    <string name="lbl_your_name">Your Name</string>
+    <string name="lbl_create_password">Create Password</string>
+    <string name="job_title_company_or_anything">Job Title, Company, or Anything</string>
+</resources>

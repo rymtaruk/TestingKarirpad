@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Vacancy.VacancyActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@id/cvSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_bar_menu"
+                    app:tint="@color/Gray"
+                    tools:ignore="ContentDescription" />
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_access_time_24"
+                    app:tint="@color/DodgerBlue"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:text="History"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText,NestedWeights" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="end">
+
+                <ImageButton
+                    android:id="@+id/ibNotif"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="end"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_outline_notifications_24"
+                    app:elevation="4dp"
+                    tools:ignore="ContentDescription" />
+
+                <ImageButton
+                    android:id="@+id/ibAvatar"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="22dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_person_24"
+                    app:elevation="4dp"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSearch"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="12dp"
+        app:cardCornerRadius="12dp"
+        app:elevation="@dimen/cardview_default_radius"
+        app:layout_constraintBottom_toTopOf="@id/tvCountList"
+        app:layout_constraintEnd_toEndOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etSearchAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_rounded_transparant_gray"
+                android:drawableStart="@drawable/ic_baseline_search_24"
+                android:hint="@string/job_title_company_or_anything"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="10dp" />
+
+            <LinearLayout
+                android:id="@+id/llMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <EditText
+                    android:id="@+id/etLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_rounded_transparant_gray"
+                    android:drawableStart="@drawable/ic_outline_location_on_24"
+                    android:hint="Location"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etJobType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_rounded_transparant_gray"
+                    android:drawableStart="@drawable/ic_outline_cases_24"
+                    android:hint="Job Type"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etSalaryRange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_rounded_transparant_gray"
+                    android:drawableStart="@drawable/ic_outline_monetization_on_24"
+                    android:hint="Salary Range"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="10dp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/Blue"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:text="Search"
+                app:cornerRadius="10dp"
+                tools:ignore="HardcodedText,UnusedAttribute" />
+
+            <LinearLayout
+                android:id="@+id/llSeeMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/GrayCustom"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvSeeMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="See More"
+                    app:drawableEndCompat="@drawable/ic_outline_arrow_down_24"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvCountList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Semua Lowongan"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/llDot"
+        app:layout_constraintStart_toStartOf="@id/cvSearch"
+        app:layout_constraintTop_toBottomOf="@id/cvSearch"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/llDot"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/tvCountList"
+        app:layout_constraintEnd_toEndOf="@id/cvSearch"
+        app:layout_constraintStart_toEndOf="@id/tvCountList"
+        app:layout_constraintTop_toTopOf="@id/tvCountList"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <ImageView
+            android:id="@+id/ivDot"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_ellipsis"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnRefresh"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_baseline_refresh_24"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:tint="@color/Black"
+        app:layout_constraintEnd_toEndOf="@id/llDot"
+        app:layout_constraintStart_toStartOf="@id/tvCountList"
+        app:layout_constraintTop_toBottomOf="@id/tvCountList"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="ContentDescription" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVacancy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@id/llDot"
+        app:layout_constraintStart_toStartOf="@id/tvCountList"
+        app:layout_constraintTop_toBottomOf="@id/tvCountList"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:listitem="@layout/adapter_vacancy" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/sflLoading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/llDot"
+        app:layout_constraintStart_toStartOf="@id/tvCountList"
+        app:layout_constraintTop_toBottomOf="@id/tvCountList">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                tools:context=".ui.Vacancy.VacancyActivity">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/ivAvatar"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/bg_dsb_shimer_rounded"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/ivDot1"
+                        android:layout_width="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/bg_dsb_shimer_rounded"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/Gray"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/tvJobName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvCompanyName"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/DodgerBlue"
+                        android:textSize="16sp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintEnd_toStartOf="@id/tvStrip"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvJobName"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvStrip"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:gravity="center"
+                        android:textColor="@color/Gray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@id/tvCompanyInfo"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@id/tvCompanyName"
+                        app:layout_constraintTop_toBottomOf="@id/tvJobName"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCompanyName"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvCompanyInfo"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/Gray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@id/tvStrip"
+                        app:layout_constraintTop_toBottomOf="@id/tvJobName"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/Gray"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@id/tvPinned"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@id/tvCompanyName"
+                        app:layout_constraintTop_toBottomOf="@id/tvCompanyName"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvPinned"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="end"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/LightSlateGray"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@id/tvCompanyInfo"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@id/tvLocation"
+                        app:layout_constraintTop_toBottomOf="@id/tvCompanyName"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/LightSlateGray"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvLocation"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvJobType"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textAlignment="center"
+                        android:textColor="@color/Gray"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/tvJobName"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="@id/tvTime"
+                        tools:ignore="HardcodedText,SmallSp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true"
+                tools:context=".ui.Vacancy.VacancyActivity">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/ivAvatar2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/bg_dsb_shimer_rounded"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/ivDot2"
+                        android:layout_width="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/bg_dsb_shimer_rounded"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/Gray"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/tvJobName2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivAvatar2"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvCompanyName2"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/DodgerBlue"
+                        android:textSize="16sp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintEnd_toStartOf="@id/tvStrip2"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvJobName2"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvStrip2"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:gravity="center"
+                        android:textColor="@color/Gray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@id/tvCompanyInfo2"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@id/tvCompanyName2"
+                        app:layout_constraintTop_toBottomOf="@id/tvJobName2"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCompanyName2"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvCompanyInfo2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/Gray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toEndOf="@id/tvStrip2"
+                        app:layout_constraintTop_toBottomOf="@id/tvJobName2"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvLocation2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/Gray"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@id/tvPinned2"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="@id/tvCompanyName2"
+                        app:layout_constraintTop_toBottomOf="@id/tvCompanyName2"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvPinned2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="end"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/LightSlateGray"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@id/tvCompanyInfo2"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@id/tvLocation2"
+                        app:layout_constraintTop_toBottomOf="@id/tvCompanyName2"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvTime2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textColor="@color/LightSlateGray"
+                        android:textSize="12sp"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvLocation2"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tvJobType2"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/bg_dsb_shimer_rounded"
+                        android:textAlignment="center"
+                        android:textColor="@color/Gray"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/tvJobName2"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="@id/tvTime2"
+                        tools:ignore="HardcodedText,SmallSp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
